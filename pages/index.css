@@ -1,0 +1,13 @@
+.bg-image{
+  text-align: center;
+  line-height: 100vh;
+  height: 100vh;
+  background-size: cover; 
+  color: white;
+  font-size: 5em;
+}
+
+body {
+ margin: 0;
+ padding: 0;
+}
