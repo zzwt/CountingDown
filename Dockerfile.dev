@@ -1,0 +1,6 @@
+FROM node:10-alpine
+RUN npm install cnpm -g 
+WORKDIR '/app'
+COPY package.json .
+RUN cnpm install
+CMD ["cnpm", "run", "dev"]
