@@ -1,7 +1,8 @@
-import React from 'react';
-import css from "./index.css"
+import React, { Component } from 'react';
 import moment from 'moment';
-export default class Index extends React.Component {
+
+
+export default class DayTime extends Component {
 
   constructor(props){
     super(props);
@@ -10,27 +11,27 @@ export default class Index extends React.Component {
       timeLeft: moment.duration(moment().diff(moment(this.props.endDateTime)) / -1)
     }
   }
-  static getInitialProps(){
-    return {
-      bg: 'test1.jpg',
-      endDateTime: moment().add(10,'d')
-    }
-  }
 
   updateTimeLeft(){
     const duration = moment.duration(moment().diff(moment(this.props.endDateTime)) / -1);
     this.setState ({
       timeLeft: duration 
     });
-    if(duration.asSeconds() <= 0)
-      return clearInterval(this.timer); 
+    // console.log("seconds left", duration.asSeconds())
+    if(duration.asSeconds() <= 0){
+      clearInterval(this.timer); 
+      this.timer = undefined;
+    }
   }
+
   componentDidMount(){
     this.timer = setInterval(() => this.updateTimeLeft(), 1000) 
   }
   componentWillUnmount(){
-    if(this.timer)
+    if(this.timer){
       clearInterval(this.timer); 
+      this.timer = undefined;
+    }
   }
 
   pad(n, width, z) {
@@ -39,29 +40,35 @@ export default class Index extends React.Component {
     return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
   }
 
-  displayTime(timeLeft) {
+  formatTime(timeLeft) {
     return `${this.pad(timeLeft.hours(), 2)} : ${this.pad(timeLeft.minutes(), 2)} : ${this.pad(timeLeft.seconds(), 2)}`
   }
 
-  displayDayTimeLeft(){
-    const timeLeft = this.state.timeLeft
+
+  displayTime(timeLeft){
     const days = timeLeft.asDays();
     return (
-      <div className="timeDisplay">
-        {days >= 1 ? 
-          ( <><div>{Math.floor(days)} Days</div><div>{this.displayTime(timeLeft)}</div></> ) : 
-          ( days > 0 ? <div>{this.displayTime(timeLeft)}</div> : '00 : 00 : 00' )
-         }
+      <div className="timeLeft" data-test="timeLeft"> 
+        {days >= 0? this.formatTime(timeLeft) : "00 : 00 : 00"}
       </div>
     )
   }
-  render(){
+
+  displayDay(timeLeft){
+    const days = timeLeft.asDays();
+    if(days >= 1)
+      return (
+              <div className="daysLeft" data-test="daysLeft"> 
+                <div>{Math.floor(days)} Days</div>
+              </div>
+              )
+  }
+
+  render() {
     return (
-    <div className='bg-image' style={
-      { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), 
-                          url('/static/${this.props.bg}')`
-      }}
-      >{this.displayDayTimeLeft()}
+      <div data-test="component-daytime">
+        {this.displayDay(this.state.timeLeft)}
+        {this.displayTime(this.state.timeLeft)}
       </div>
     )
   }

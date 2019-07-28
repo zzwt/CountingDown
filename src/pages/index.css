@@ -15,7 +15,6 @@ body {
  padding: 0;
 }
 
-.timeDisplay{
-  /* vertical-align: midele; */
+.component-daytime{
   display: inline-block;
 }

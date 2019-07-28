@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "next src",
+    "build": "next build",
+    "start": "next start",
+    "test": "mocha ./tests/**/*.test.js --require @babel/register --require ignore-styles --file ./tests/utils/setupTests.js --watch"
   },
   "author": "",
   "license": "ISC",
@@ -14,5 +17,16 @@
     "next": "^9.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "expect": "^24.8.0",
+    "ignore-styles": "^5.0.1",
+    "mocha": "^6.2.0"
   }
 }
