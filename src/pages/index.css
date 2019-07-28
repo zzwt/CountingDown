@@ -18,3 +18,94 @@ body {
 .component-daytime{
   display: inline-block;
 }
+
+.input_text{
+  vertical-align: bottom;
+  text-align: bottom;
+  font-size: 0.6em;
+  margin: 0 0.2em;
+}
+.input_day, .input_time{
+  color: white;
+  background-color: transparent;
+  text-align: center;
+  font-size: 0.8em;
+  border: 0px 0px 2px 0px;
+  vertical-align: bottom;
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: darkgrey;
+  margin: 0 0.2em;
+}
+
+.input_day{
+  width: 400px;
+}
+
+.input_time{
+  width: 200px;
+}
+
+.input_day:hover {
+  border-color: grey;
+}
+
+
+
+
+
+.picker-item:nth-child(2) {
+  background: -webkit-linear-gradient(#181818, #cacaca);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.picker-item:nth-child(6) {
+  background: -webkit-linear-gradient( #cacaca, #181818);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+.picker-title {
+  color: white;
+}
+
+.picker-dialog {
+  background:  #212121;
+  border: none
+}
+
+.picker-cancel {
+  color: white;
+}
+
+.picker-confirm, .picker-picked {
+  color: #57D9CB;
+}
+
+.picker-header {
+  border-bottom: none;
+}
+
+.picker-body {
+  background: #171717;
+}
+
+.picker-footer {
+  border-top: none;
+}
+
+.picker-cell__body:before, .picker-cell__body:after {
+  background-image: none;
+}
+
+.picker-cancel:focus,
+.picker-cancel:hover,
+.picker-confirm:focus,
+.picker-confirm:hover {
+  background-color:#303030;
+  outline:none
+}

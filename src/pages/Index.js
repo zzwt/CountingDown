@@ -2,6 +2,8 @@ import React from 'react';
 import css from "./index.css"
 import moment from 'moment';
 import DayTime from '../components/DayTime'
+import classnames from 'classnames';
+
 export default class Index extends React.Component {
 
   constructor(props){
@@ -18,45 +20,25 @@ export default class Index extends React.Component {
     }
   }
 
-  // updateTimeLeft(){
-  //   const duration = moment.duration(moment().diff(moment(this.props.endDateTime)) / -1);
-  //   this.setState ({
-  //     timeLeft: duration 
-  //   });
-  //   if(duration.asSeconds() <= 0)
-  //     return clearInterval(this.timer); 
-  // }
-  
-  // componentDidMount(){
-  //   this.timer = setInterval(() => this.updateTimeLeft(), 1000) 
-  // }
-  // componentWillUnmount(){
-  //   if(this.timer)
-  //     clearInterval(this.timer); 
-  // }
+  componentDidMount() {
+    new Picker(document.querySelector('.js-date-picker'), {
+      format: 'MMM D, YYYY',
+      text: {
+        title: 'Pick a date',
+      },
+    });
 
-  // pad(n, width, z) {
-  //   z = z || '0';
-  //   n = n + '';
-  //   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
-  // }
+    new Picker(document.querySelector('.js-time-picker'), {
+      format: 'HH:mm',
+      headers: true,
+      text: {
+        title: 'Pick a time',
+      },
+    });
 
-  // displayTime(timeLeft) {
-  //   return `${this.pad(timeLeft.hours(), 2)} : ${this.pad(timeLeft.minutes(), 2)} : ${this.pad(timeLeft.seconds(), 2)}`
-  // }
 
-  // displayDayTimeLeft(){
-  //   const timeLeft = this.state.timeLeft
-  //   const days = timeLeft.asDays();
-  //   return (
-  //     <div className="timeDisplay">
-  //       {days >= 1 ? 
-  //         ( <><div>{Math.floor(days)} Days</div><div>{this.displayTime(timeLeft)}</div></> ) : 
-  //         ( days > 0 ? <div>{this.displayTime(timeLeft)}</div> : '00 : 00 : 00' )
-  //        }
-  //     </div>
-  //   )
-  // }
+  }
+
   render(){
     return (
       <div className='page-input' data-test='page-input'>
@@ -65,8 +47,15 @@ export default class Index extends React.Component {
                               url('/static/${this.props.bg}')`
           }}
         >
-          <DayTime className='component-daytime' data-test='component-daytime' endDateTime={this.props.endDateTime}/>
+          {/* <DayTime className='component-daytime' data-test='component-daytime' endDateTime={this.props.endDateTime}/> */}
+          <div>
+            <span className="input_text"> On</span>
+            <input type="text" className="form-control js-date-picker input_day" value="Oct 24, 2048" />
+            <span className="input_text"> At </span>
+            <input type="text" className="form-control js-time-picker input_time" value="02:56" />
+          </div>
         </div>
+        
       </div>
     )
   }
