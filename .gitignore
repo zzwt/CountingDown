@@ -3,3 +3,4 @@ node_modules
 static
 .babelrc.bak
 *.xd
+.nyc_output
