@@ -29,6 +29,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "expect": "^24.8.0",
     "ignore-styles": "^5.0.1",
-    "mocha": "^6.2.0"
+    "mocha": "^6.2.0",
+    "sinon": "^7.3.2"
   }
 }

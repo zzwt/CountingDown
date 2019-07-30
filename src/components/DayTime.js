@@ -7,6 +7,7 @@ export default class DayTime extends Component {
   constructor(props){
     super(props);
     this.updateTimeLeft = this.updateTimeLeft.bind(this)
+    this.resetClicked = this.resetClicked.bind(this)
     this.state = {
       timeLeft: moment.duration(moment().diff(moment(this.props.endDateTime)) / -1)
     }
@@ -64,11 +65,23 @@ export default class DayTime extends Component {
               )
   }
 
+  displayResetButton(){
+    return (
+      <button className="reset_button" onClick={this.resetClicked}>Reset</button>
+    )
+  }
+
+  resetClicked(event){
+    event.preventDefault();
+    this.props.resetCallback(); 
+  }
+
   render() {
     return (
       <div data-test="component-daytime">
         {this.displayDay(this.state.timeLeft)}
         {this.displayTime(this.state.timeLeft)}
+        {this.displayResetButton()}
       </div>
     )
   }

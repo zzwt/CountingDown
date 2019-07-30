@@ -11,7 +11,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link  href="/static/picker.min.css" rel="stylesheet" />
-         
+          <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
         </Head>  
         <body>
           <Main />

@@ -23,8 +23,15 @@ describe('Render', () => {
     
   })
   
-  it('Index page should render datetime left', () => {
-    const component = findTestAttr(wrapper, "component-daytime");
+  it('Index page initial render should have a setupDateTime component', () => {
+    const component  = wrapper.find('SetDateTime');
+    expect(component.length).toBe(1);
+    
+  })
+
+  it('Index page should have a DayTime component if it starts counting', () => {
+    wrapper.setState({counting: true});
+    const component  = wrapper.find('DayTime');
     expect(component.length).toBe(1);
     
   })
