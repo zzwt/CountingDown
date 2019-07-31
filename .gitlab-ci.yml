@@ -1,0 +1,25 @@
+stages:
+  - build
+  - test
+  - deploy
+
+job1:
+  stages: test
+  tags:
+    - docker
+  script:
+    - echo "I am job1"
+
+job2:
+  stages: build
+  tags:
+    - docker
+  script:
+    - echo "I am job2"
+
+job3:
+  stages: deploy
+  tags:
+    - docker
+  script:
+    - echo "I am job3"
