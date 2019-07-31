@@ -4,21 +4,21 @@ stages:
   - deploy
 
 job1:
-  stages: test
+  stage: test
   tags:
     - docker
   script:
     - echo "I am job1"
 
 job2:
-  stages: build
+  stage: build
   tags:
     - docker
   script:
     - echo "I am job2"
 
 job3:
-  stages: deploy
+  stage: deploy
   tags:
     - docker
   script:
