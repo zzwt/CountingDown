@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next src",
-    "build": "next build",
-    "start": "next start",
+    "dev": "next ./src",
+    "build": "next build ./src",
+    "start": "next start ./src",
     "test:watch": "mocha ./tests/**/*.test.js --require @babel/register --require ignore-styles --file ./tests/utils/setupTests.js --watch",
     "test": "nyc mocha ./tests/**/*.test.js --require @babel/register --require ignore-styles --file ./tests/utils/setupTests.js"
   },
