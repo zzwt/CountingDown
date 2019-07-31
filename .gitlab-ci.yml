@@ -1,6 +1,6 @@
 stages:
   - test
-  - builid
+  - build
   - deploy
 
 job1:
