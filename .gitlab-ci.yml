@@ -8,6 +8,7 @@ stages:
   - deploy
 
 before_script:
+  - docker --version
   - docker build -t joel/countingdown -f Dockerfile .
 
 job1:
