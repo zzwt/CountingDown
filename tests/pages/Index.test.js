@@ -9,7 +9,7 @@ import expect from 'expect';
 describe('Render', () => {
   let wrapper;
     beforeEach(() =>{
-      wrapper = shallow(<Index />);
+      wrapper = shallow(<Index/>);
     }) 
   it('Index page should render without error', () => {
     const component = findTestAttr(wrapper, "page-input");
