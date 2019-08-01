@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import Index from '../../src/pages/index';  
+import IndexPage from '../../src/pages/index';  
 import {findTestAttr} from '../utils'
 
 import expect from 'expect';
@@ -9,7 +9,7 @@ import expect from 'expect';
 describe('Render', () => {
   let wrapper;
     beforeEach(() =>{
-      wrapper = shallow(<Index />);
+      wrapper = shallow(<IndexPage />);
     }) 
   it('Index page should render without error', () => {
     const component = findTestAttr(wrapper, "page-input");
