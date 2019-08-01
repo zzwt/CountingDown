@@ -4,25 +4,20 @@ services:
   - docker:dind
 
 stages:
-  - build
   - test
   - deploy
 
-job1:
-  stage: build
-  tags:
-    - docker
-  script:
-    - docker build -t joel/countingdown -f Dockerfile .
+before_script:
+  - docker build -t joel/countingdown -f Dockerfile .
 
-job2:
+job1:
   stage: test
   tags:
     - docker
   script:
     - docker run joel/countingdown npm run test
 
-job3:
+job2:
   stage: deploy
   tags:
     - docker
