@@ -4,18 +4,18 @@ stages:
   - deploy
 
 job1:
-  stage: test
-  tags:
-    - docker
-  script:
-    - echo "I am job1"
-
-job2:
   stage: build
   tags:
     - docker
   script:
-    - echo "I am job2"
+    - docker build -t joel/countingdown -f Dockerfile .
+
+job2:
+  stage: test
+  tags:
+    - docker
+  script:
+    - docker run joel/countingdown npm run test
 
 job3:
   stage: deploy
