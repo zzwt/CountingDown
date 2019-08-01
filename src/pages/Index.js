@@ -5,7 +5,7 @@ import DayTime from '../components/DayTime'
 import SetDateTime from '../components/SetDateTime'
 import classnames from 'classnames';
 
-class Index extends React.Component {
+export class Index extends React.Component {
 
   constructor(props){
     super(props);
