@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {Index} from '../../src/pages/index';  
+import Index from '../../src/pages/index.js';  
 import {findTestAttr} from '../utils'
 
 import expect from 'expect';
