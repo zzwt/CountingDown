@@ -6,16 +6,15 @@ services:
 stages:
   - test
   - deploy
-
-before_script:
-  - docker --version
-  - docker build -t joel/countingdown -f Dockerfile .
-
+variables:
+  DOCKER_HOST: ssh://deploy@173.242.127.125:28960 
+  
 job1:
   stage: test
   tags:
     - docker
   script:
+    - docker build -t joel/countingdown -f Dockerfile .
     - docker run joel/countingdown npm run test
 
 job2:
@@ -23,4 +22,4 @@ job2:
   tags:
     - docker
   script:
-    - echo "I am job3"
+    - docker -H $DOCKER_HOST build -t joel/countingdown -f Dockerfile .
