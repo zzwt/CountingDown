@@ -20,7 +20,6 @@ job2:
   tags:
     - docker
   script:
-    - which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )
-    - which ssh-add || ( apt-get update -y && apt-get ssh-add -y )
+    - apk add openssh-client
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
     - docker -H ssh://deploy@173.242.127.125:28960 build -t joel/countingdown -f Dockerfile .
