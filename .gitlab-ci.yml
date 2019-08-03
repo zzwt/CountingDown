@@ -6,9 +6,7 @@ services:
 stages:
   - test
   - deploy
-variables:
-  DOCKER_HOST: ssh://deploy@173.242.127.125:28960 
-  
+
 job1:
   stage: test
   tags:
@@ -22,4 +20,5 @@ job2:
   tags:
     - docker
   script:
-    - docker -H $DOCKER_HOST build -t joel/countingdown -f Dockerfile .
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - docker -H ssh://deploy@173.242.127.125:28960 build -t joel/countingdown -f Dockerfile .
