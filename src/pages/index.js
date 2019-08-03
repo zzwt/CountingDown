@@ -16,7 +16,7 @@ export class Index extends Component {
     // }
 
     this.state = {
-      bg: 'test1.jpg',
+      bg: 'https://images.unsplash.com/photo-1561842318-18fbed8d47eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1789&q=80',
       endDateTime: moment().add(10,'s'),
       counting: false
     }
@@ -44,7 +44,7 @@ export class Index extends Component {
       <div className='page-input' data-test='page-input'>
         <div className='bg-image'data-test='bg-image' style={
           { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), 
-                              url('/static/${this.state.bg}')`
+                              url(${this.state.bg})`
           }}
         >
           {
