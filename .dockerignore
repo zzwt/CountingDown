@@ -1,2 +1,4 @@
 /node_modules
 /.next
+/.nyc_output
+/src/.next

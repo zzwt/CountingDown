@@ -1,6 +1,5 @@
 node_modules
 .next
-static
 .babelrc.bak
 *.xd
 .nyc_output
