@@ -25,7 +25,7 @@ job2:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
-    - ssh-add ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
+    - ssh-add ~/.ssh/id_rsa
     - cat ~/.ssh/id_rsa
     - docker -H ssh://deploy@173.242.127.125:28960 build -t joel/countingdown -f Dockerfile .
