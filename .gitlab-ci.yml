@@ -28,4 +28,7 @@ job2:
     - chmod 600 ~/.ssh/id_rsa
     - ssh-add ~/.ssh/id_rsa
     - cat ~/.ssh/id_rsa
+    - ssh -p 28960 deploy@173.242.127.125
+    - pwd
+    - exit
     - docker -H ssh://deploy@173.242.127.125:28960 build -t joel/countingdown -f Dockerfile .
