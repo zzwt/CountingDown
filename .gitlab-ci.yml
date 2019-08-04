@@ -13,7 +13,7 @@ job1:
     - docker
   script:
     - docker build -t registry.gitlab.com/loophone/countingdown -f Dockerfile .
-    - docker run joel/countingdown npm run test
+    - docker run registry.gitlab.com/loophone/countingdown npm run test
     - docker login registry.gitlab.com -u joel -p $PERSONAL_ACCESS_TOKEN
     - docker push registry.gitlab.com/loophone/countingdown
     - docker logout
