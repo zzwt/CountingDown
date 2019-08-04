@@ -24,5 +24,6 @@ job2:
     - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
+    - chmod 600 $SSH_PRIVATE_KEY
     - ssh-add $SSH_PRIVATE_KEY
     - docker -H ssh://deploy@173.242.127.125:28960 build -t joel/countingdown -f Dockerfile .
