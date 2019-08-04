@@ -29,5 +29,5 @@ job2:
     - chmod 700 ~/.ssh
     - chmod 600 $SSH_PRIVATE_KEY
     - ssh-add $SSH_PRIVATE_KEY
-    - ssh -o StrictHostKeyChecking=no -p 28960 deploy@173.242.127.125 "docker login registry.gitlab.com -u joel -p $PERSONAL_ACCESS_TOKEN; docker pull registry.gitlab.com/loophone/countingdown; if [$(docker ps -aq --filter name=countingdown)]; then docker rm -f countingdown; fi; docker run --name=countingdown -p 80:3030 registry.gitlab.com/loophone/countingdown npm run test"
+    - ssh -o StrictHostKeyChecking=no -p 28960 deploy@173.242.127.125 "docker login registry.gitlab.com -u joel -p $PERSONAL_ACCESS_TOKEN; docker pull registry.gitlab.com/loophone/countingdown; if [$(docker ps -aq --filter name=countingdown)] then docker rm -f countingdown fi; docker run --name=countingdown -p 80:3030 registry.gitlab.com/loophone/countingdown npm run test"
   when: manual
