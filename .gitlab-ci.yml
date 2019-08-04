@@ -12,8 +12,11 @@ job1:
   tags:
     - docker
   script:
-    - docker build -t joel/countingdown -f Dockerfile .
+    - docker build -t registry.gitlab.com/loophone/countingdown -f Dockerfile .
     - docker run joel/countingdown npm run test
+    - docker login registry.gitlab.com -u joel -p $PERSONAL_ACCESS_TOKEN
+    - docker push registry.gitlab.com/loophone/countingdown
+    - docker logout
 
 job2:
   stage: deploy
@@ -27,3 +30,5 @@ job2:
     - chmod 600 $SSH_PRIVATE_KEY
     - ssh-add $SSH_PRIVATE_KEY
     - docker -H ssh://deploy@173.242.127.125:28960 build -t joel/countingdown -f Dockerfile .
+  when: manual
+    
