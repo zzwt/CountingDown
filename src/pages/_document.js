@@ -12,7 +12,6 @@ class MyDocument extends Document {
         <Head>
           <link  href="/static/picker.min.css" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
-          <!-- Global site tag (gtag.js) - Google Analytics -->
           <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145128640-1"></script>
           <script>
             window.dataLayer = window.dataLayer || [];
