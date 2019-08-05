@@ -29,7 +29,7 @@ job2:
     - chmod 700 ~/.ssh
     - chmod 600 $SSH_PRIVATE_KEY
     - ssh-add $SSH_PRIVATE_KEY
-    - ssh -o StrictHostKeyChecking=no -p 28960 deploy@173.242.127.125 
+    - ssh -t -o StrictHostKeyChecking=no -p 28960 deploy@173.242.127.125 
     - if [ $(docker ps -aq --filter name=countingdown) ]; then echo "then statement"; else echo "else statement"; fi
   when: manual
 
