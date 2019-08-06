@@ -11,6 +11,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta name="keywords" content="countdown live count down beautiful images background" />
           <link  href="/static/picker.min.css" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
           <script
